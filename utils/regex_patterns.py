@@ -1,0 +1,2 @@
+EMAIL_REGEX = None
+CPF_REGEX = None

@@ -1,0 +1,10 @@
+data-leak-watcher/
+├── crawler/
+│   ├── __init__.py
+│   ├── pastebin_scraper.py
+│   ├── ghostbin_scraper.py
+├── utils/
+│   ├── regex_patterns.py
+├── main.py
+├── requirements.txt
+├── README.md

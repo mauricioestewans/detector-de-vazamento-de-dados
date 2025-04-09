@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Relatório de Vazamentos</title>
+    <style>
+        body { font-family: sans-serif; margin: 30px; }
+        h1, h2 { color: #333; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+        th { background: #f3f3f3; }
+    </style>
+</head>
+<body>
+    <h1>Relatório de Vazamentos</h1>
+    <p><strong>Empresa:</strong> {{ empresa }}</p>
+    <p><strong>Data:</strong> {{ data }}</p>
+
+    <h2>Resultados Encontrados</h2>
+    {% for item in resultados %}
+        <h3>Fonte: {{ item.url }}</h3>
+        {% if item.emails %}
+            <p><strong>E-mails:</strong> {{ item.emails | join(', ') }}</p>
+        {% endif %}
+        {% if item.cpfs %}
+            <p><strong>CPFs:</strong> {{ item.cpfs | join(', ') }}</p>
+        {% endif %}
+        <hr>
+    {% endfor %}
+
+    <footer style="margin-top: 40px; font-size: 0.9em;">
+        Relatório gerado automaticamente por Data Leak Watcher.
+    </footer>
+</body>
+</html>

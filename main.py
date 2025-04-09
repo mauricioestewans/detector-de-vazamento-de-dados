@@ -1,0 +1,3 @@
+# main.py placeholder
+TELEGRAM_TOKEN = "1005277463"
+TELEGRAM_CHAT_ID = "1005277463"

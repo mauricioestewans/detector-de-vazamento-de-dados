@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - Data Leak Watcher</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <a href="{{ url_for('main.dashboard') }}">📊 Ver Dashboard</a>
+
+</head>
+<body>
+    <h2>📊 Dashboard de Vazamentos</h2>
+    <p><strong>Total de Vazamentos:</strong> {{ total }}</p>
+    <p><strong>Total de E-mails:</strong> {{ emails }}</p>
+    <p><strong>Total de CPFs:</strong> {{ cpfs }}</p>
+
+    <h3>Fontes dos Vazamentos</h3>
+    <canvas id="fonteChart"></canvas>
+
+    <h3>Vazamentos por Data</h3>
+    <canvas id="dataChart"></canvas>
+
+    <a href="{{ url_for('main.index') }}">← Voltar ao painel</a>
+
+    <script>
+        const ctx1 = document.getElementById('fonteChart').getContext('2d');
+        const fonteChart = new Chart(ctx1, {
+            type: 'pie',
+            data: {
+                labels: {{ fontes.keys() | list | safe }},
+                datasets: [{
+                    data: {{ fontes.values() | list | safe }},
+                    backgroundColor: ['#ff6384','#36a2eb','#cc65fe','#ffce56']
+                }]
+            }
+        });
+
+        const ctx2 = document.getElementById('dataChart').getContext('2d');
+        const dataChart = new Chart(ctx2, {
+            type: 'line',
+            data: {
+                labels: {{ por_data.keys() | list | safe }},
+                datasets: [{
+                    label: 'Vazamentos por dia',
+                    data: {{ por_data.values() | list | safe }},
+                    fill: false,
+                    borderColor: '#4bc0c0',
+                    tension: 0.1
+                }]
+            }
+        });
+    </script>
+</body>
+</html>

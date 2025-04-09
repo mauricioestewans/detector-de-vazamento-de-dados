@@ -1,0 +1,1 @@
+def carregar_palavras_chave(): return []

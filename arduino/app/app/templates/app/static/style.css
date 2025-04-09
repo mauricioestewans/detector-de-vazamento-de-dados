@@ -1,0 +1,23 @@
+body {
+    font-family: sans-serif;
+    margin: 40px;
+}
+
+input {
+    padding: 5px;
+    width: 300px;
+}
+
+button {
+    padding: 6px 12px;
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.resultado {
+    background: #f3f3f3;
+    padding: 10px;
+    border-radius: 5px;
+}

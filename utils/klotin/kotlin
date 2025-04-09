@@ -1,0 +1,3 @@
+data-leak-watcher/
+├── keywords/         👈 NOVO - onde as listas de palavras ficarão salvas
+│   └── palavras.txt

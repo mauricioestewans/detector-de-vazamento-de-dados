@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Leak Watcher</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>🔍 Data Leak Watcher</h1>
+    <form method="get">
+        <input type="text" name="q" placeholder="Buscar e-mail, CPF, domínio..." value="{{ search }}">
+        <button type="submit">Buscar</button>
+    </form>
+
+    <hr>
+    {% for r in resultados %}
+        <div class="resultado">
+            <p><strong>URL:</strong> <a href="{{ r.url }}">{{ r.url }}</a></p>
+            {% if r.emails %}
+                <p><strong>E-mails:</strong> {{ r.emails | join(", ") }}</p>
+            {% endif %}
+            {% if r.cpfs %}
+                <p><strong>CPFs:</strong> {{ r.cpfs | join(", ") }}</p>
+            {% endif %}
+        </div>
+        <hr>
+    {% else %}
+        <p>Nenhum vazamento encontrado para esta busca.</p>
+    {% endfor %}
+</body>
+</html>
