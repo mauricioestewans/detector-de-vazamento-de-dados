@@ -1,3 +1,4 @@
-# main.py placeholder
-TELEGRAM_TOKEN = "1005277463"
-TELEGRAM_CHAT_ID = "1005277463"
+import os
+
+TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN", "")
+TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "")
