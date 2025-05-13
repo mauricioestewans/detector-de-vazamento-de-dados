@@ -1,5 +1,5 @@
 # Base Python
-FROM python:3.10-slim
+FROM python:3.13.2-slim
 
 # Instalar dependências do sistema
 RUN apt-get update && apt-get install -y \
