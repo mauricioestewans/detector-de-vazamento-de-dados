@@ -5,3 +5,5 @@ beautifulsoup4
 schedule
 python-telegram-bot==13.15
 weasyprint
+urllib3>=2.6.3 # not directly required, pinned by Snyk to avoid a vulnerability
+werkzeug>=3.1.5 # not directly required, pinned by Snyk to avoid a vulnerability
